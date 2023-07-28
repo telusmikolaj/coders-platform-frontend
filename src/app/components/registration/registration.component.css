@@ -1,0 +1,137 @@
+.card {
+    width: 320px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #151A30;
+    box-shadow: 0 0 1px 0 rgba(239,242,247,0.50), 0 2px 4px 0 rgba(3,3,4,0.10);
+    border-radius: 4px;
+  }
+  
+  .card h1 {
+    font-family: 'AppleSystemUIFont';
+    font-size: 28px;
+    color: #D8D8D8;
+    letter-spacing: 0.1px;
+    text-align: center;
+    line-height: 37px;
+    /* Możesz dodać dodatkowe style tutaj */
+    margin-bottom: 15px; /* Dodaje trochę przestrzeni poniżej nagłówka */
+  }
+
+  label {
+    font-family: 'AppleSystemUIFont';
+    font-size: 17px;
+    color: #D8D8D8;
+    letter-spacing: 0.1px;
+    line-height: 37px;
+  }
+  
+  .mat-form-field {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  .login-btn  {
+    width: 100%;
+    border-radius: 35px!important;
+    background-color: #009DFF !important;
+    color: #FFFFFF !important;
+    font-family: 'AppleSystemUIFont' !important;
+    font-size: 20px !important;
+    text-align: center;
+    line-height: 30px !important;
+    border: none !important; 
+  }
+
+  .login-btn:focus  {
+    background-color: #4f7993;
+   
+
+  }
+  
+  p {
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  .forgot-password-link {
+    font-family: 'AppleSystemUIFont';
+    font-size: 12px;
+    color: #778F9B;
+    letter-spacing: 0.09px;
+    text-align: center;
+    line-height: 24px;
+    text-decoration: none;
+    
+  }
+
+  .card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* vh - Viewport Height. 100vh to pełna wysokość przeglądarki */
+    margin: 0 auto;
+  }
+
+  .registration-form {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    color: #FFFFFF;
+    padding-bottom: 20px;
+
+}
+
+.form-field input {
+    background: none;
+    border: none;
+    border-bottom: 1px solid #FFFFFF;
+    color: #FFFFFF;
+}
+  
+.form-field input {
+    background: none;
+    border: none;
+    border-bottom: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    outline: none;
+}
+
+.form-field label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.2s;
+    opacity: 0;
+}
+
+.form-field label.active {
+    opacity: 1;
+}
+
+.error-message {
+    color: #FF0000; /* czerwony kolor */
+    font-size: 14px; 
+    margin-top: 5px; /* dodaj trochę przestrzeni nad komunikatem o błędzie */
+  }
+  
+  /* Styl dla przycisku podczas kliknięcia */
+  .login-btn:active {
+    background-color: #007ACC;
+    transform: scale(0.95); /* zmniejsza przycisk o 5% */
+  }
+
+
+  .login-btn:hover {
+    background-color: #007ACC; /* Zmień kolor tła, gdy najedziesz na przycisk */
+    cursor: pointer; /* Zmień wygląd kursora na wskaźnik */
+    transform: scale(1.02); /* Powiększ przycisk o 2% */
+  }
+
+  

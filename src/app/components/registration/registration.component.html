@@ -1,0 +1,33 @@
+<div class="card-container">
+  <div class="card">
+    <h1 class="registration-title">Zarejestruj się</h1>
+    <form class="registration-form" [formGroup]="registrationForm" (ngSubmit)="onRegister()">
+      <div class="form-field">
+          <input type="email" formControlName="email" placeholder="Email">
+            <div *ngIf="isTouched('email') && hasError('email', 'required')" class="error-message">Adres email jest wymagany</div>
+            <div *ngIf="isTouched('email') && hasError('email', 'email')" class="error-message">Nieprawiłowy format adres email</div>
+          </div>
+      <div class="form-field">
+          <input type="password" formControlName="password" placeholder="Password">
+          <div *ngIf="isTouched('password') && hasError('password', 'required')" class="error-message">
+            Hasło jest wymagane
+          </div>
+          <div *ngIf="registrationForm.get('password')?.touched && hasMinLengthError()" class="error-message">
+            Hasło musi mieć co najmniej 8 znaków
+          </div>
+          
+      </div>
+      <div class="form-field">
+          <input type="password" formControlName="confirmPassword" placeholder="Confirm Password" >
+          <div *ngIf="isTouched('confirmPassword') && hasError('confirmPassword', 'required')" class="error-message"> 
+            Pole jest wymagane
+          </div>
+          <div *ngIf="registrationForm.hasError('notSame')">
+            Hasła nie są identyczne
+          </div>
+        </div>
+      <button  class="login-btn" type="submit">Register</button>
+      <a href="#" class="forgot-password-link">Forgot Password?</a>
+  </form>
+  </div>
+</div>
