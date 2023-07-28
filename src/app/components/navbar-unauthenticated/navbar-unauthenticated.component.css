@@ -1,0 +1,36 @@
+.custom-toolbar {
+    background: none; /* Ensures the toolbar has no background */
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .nav-button {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; /* Apple System Font */
+    font-size: 9.8px;
+    color: #EAF1F6;
+    letter-spacing: 0.2px;
+    padding: 5px 10px; /* Add padding around the links */
+    position: relative; /* Make the nav-button the parent of the pseudo-element */
+  }
+  
+  .nav-button::after {
+    content: ''; /* This is necessary for the pseudo-element to be created */
+    position: absolute; /* This positions the element relative to the nav-button */
+    bottom: 0; /* This positions the pseudo-element at the bottom of the nav-button */
+    left: 0; /* This positions the pseudo-element at the left of the nav-button */
+    width: 100%; /* This makes the pseudo-element the same width as the nav-button */
+    height: 2px; /* This determines the thickness of the underline */
+    background: #45AFE3;
+    border-radius: 43px;
+    transform: scaleX(0); /* This makes the pseudo-element initially invisible */
+    transition: transform 0.3s ease; /* This determines the speed and type of transition */
+  }
+  
+  .nav-button:hover::after {
+    transform: scaleX(1); /* This makes the pseudo-element visible when hovering */
+  }
+
+  .logo {
+    padding-top: 50px;
+    height: 150px;
+}
