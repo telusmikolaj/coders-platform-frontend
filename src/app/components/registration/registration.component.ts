@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {UserService} from "../../services/user.service";
+import {AuthService} from "../../services/auth.service";
 import {UserRegistrationRequest} from "../../models/UserRegistrationRequest";
 
 @Component({
@@ -37,7 +37,7 @@ registrationForm = this.fb.group({
   
   
 
-  constructor(private fb: FormBuilder, private userService: UserService) {
+  constructor(private fb: FormBuilder, private authService: AuthService) {
   }
 
   
@@ -55,7 +55,7 @@ registrationForm = this.fb.group({
 
       }
 
-      this.userService.registerUser(request).subscribe(
+      this.authService.registerUser(request).subscribe(
         response => {
           console.log(response);
         },

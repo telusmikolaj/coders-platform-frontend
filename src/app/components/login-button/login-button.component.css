@@ -12,14 +12,17 @@
 }
 
 .button-text {
-    font-family: Helvetica;
-    font-size: 11.2px;
-    color: #a7a9bc;
-    letter-spacing: 0.35px;
-    line-height: 24.5px;
-    text-align: left;
-    padding-left: 150px;
-    padding-top: 10px;
+    font-family: 'AppleSystemUIFont';
+    font-size: 15px;
+    color: #778F9B;
+    letter-spacing: 0.09px;
+    line-height: 24px;
+    text-decoration: none;
+    display: block;
+    padding-left: 90px;
 
   }
-  
+  .button-container {
+    display: inline-block;
+    text-align: center;
+}

@@ -1,7 +1,38 @@
-<nav>
-    <ul>
-      <li><a routerLink="/">Home</a></li>
-      <li><a routerLink="/login">Login</a></li>
-      <li><a routerLink="/register">Register</a></li>
-    </ul>
-</nav>
+<div class="card-container">
+  <div class="card">
+    <h1 class="login-title">Zaloguj się</h1>
+    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      <div class="form-field">
+        <input type="email" formControlName="email" placeholder="Email" />
+        <div
+          *ngIf="isTouched('email') && hasError('email', 'required')"
+          class="error-message"
+        >
+          Adres email jest wymagany
+        </div>
+        <div
+          *ngIf="isTouched('email') && hasError('email', 'email')"
+          class="error-message"
+        >
+          Nieprawiłowy format adres email
+        </div>
+      </div>
+      <div class="form-field">
+        <input
+          type="password"
+          formControlName="password"
+          placeholder="Password"
+        />
+        <div
+          *ngIf="isTouched('password') && hasError('password', 'required')"
+          class="error-message"
+        >
+          Hasło jest wymagane
+        </div>
+      </div>
+
+      <button class="login-btn" type="submit">Login</button>
+      <a href="#" class="forgot-password-link">Zresetuj hasło</a>
+    </form>
+  </div>
+</div>
