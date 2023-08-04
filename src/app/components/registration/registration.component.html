@@ -22,7 +22,7 @@
           <div *ngIf="isTouched('confirmPassword') && hasError('confirmPassword', 'required')" class="error-message"> 
             Pole jest wymagane
           </div>
-          <div *ngIf="registrationForm.hasError('notSame')">
+          <div *ngIf="registrationForm.hasError('notSame')" class="error-message">
             Hasła nie są identyczne
           </div>
         </div>
