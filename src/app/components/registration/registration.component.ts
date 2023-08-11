@@ -45,24 +45,24 @@ export class RegistrationComponent implements OnInit {
   ngOnInit(): void {}
 
   onRegister() {
-    if (this.registrationForm.valid) {
-      const request: UserRegistrationRequest = {
-        email: this.registrationForm.get('email')?.value,
-        password: this.registrationForm.get('password')?.value,
-      };
+    // if (this.registrationForm.valid) {
+    //   const request: UserRegistrationRequest = {
+    //     email: this.registrationForm.get('email')?.value,
+    //     password: this.registrationForm.get('password')?.value,
+    //   };
 
-      this.authService.registerUser(request).subscribe(
-        (response) => {
-          console.log(response);
-        },
-        (error) => {
-          console.log(error);
-          this.errorMessage = error;
-        }
-      );
-    } else {
+    //   this.authService.registerUser(request).subscribe(
+    //     (response) => {
+    //       console.log(response);
+    //     },
+    //     (error) => {
+    //       console.log(error);
+    //       this.errorMessage = error;
+    //     }
+    //   );
+    // } else {
 
-      this.registrationForm.markAllAsTouched();
-    }
+    //   this.registrationForm.markAllAsTouched();
+    // }
   }
 }

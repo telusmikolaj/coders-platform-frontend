@@ -18,7 +18,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private authService: AuthService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   isTouched(controlName: string) {
     const control = this.loginForm.get(controlName);
@@ -31,34 +32,34 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin() {
-    if (this.loginForm.valid) {
-      const emailControl = this.loginForm.get('email');
-      const passwordControl = this.loginForm.get('password');
+    // if (this.loginForm.valid) {
+    //   const emailControl = this.loginForm.get('email');
+    //   const passwordControl = this.loginForm.get('password');
 
-      if (
-        emailControl &&
-        passwordControl &&
-        emailControl.value &&
-        passwordControl.value
-      ) {
-        const request: UserLoginRequest = {
-          email: emailControl.value,
-          password: passwordControl.value,
-        };
+    //   if (
+    //     emailControl &&
+    //     passwordControl &&
+    //     emailControl.value &&
+    //     passwordControl.value
+    //   ) {
+    //     const request: UserLoginRequest = {
+    //       email: emailControl.value,
+    //       password: passwordControl.value,
+    //     };
 
-        this.authService.loginUser(request).subscribe(
-          (response) => {
-            console.log(response);
-          },
-          (error) => {
-            console.log(error);
-            this.errorMessage = error;
-          }
-        );
-      } else {
+    //     this.authService.loginUser(request).subscribe(
+    //       (response) => {
+    //         console.log(response);
+    //       },
+    //       (error) => {
+    //         console.log(error);
+    //         this.errorMessage = error;
+    //       }
+    //     );
+    //   } else {
 
-        this.loginForm.markAllAsTouched();
-      }
-    }
+    //     this.loginForm.markAllAsTouched();
+    //   }
+    // }
   }
 }

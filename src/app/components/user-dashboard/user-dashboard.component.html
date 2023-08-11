@@ -1,0 +1,11 @@
+<mat-toolbar class="custom-toolbar">
+    <a routerLink="/home">
+        <img class="logo" src="../../../assets/logo.svg" alt="Logo">
+    </a>
+    <div>
+        <a mat-button class="nav-button" routerLink="/user-dashboard">Dashboard</a>
+        <a mat-button class="nav-button" (click)="logout()">Wyloguj się</a>
+    </div>
+</mat-toolbar>
+
+<h1>User dashboard</h1>
