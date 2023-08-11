@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -10,13 +10,29 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NavbarUnauthenticatedComponent } from './components/navbar-unauthenticated/navbar-unauthenticated.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { MainTextComponent } from './components/main-text/main-text.component';
 import { LoginButtonComponent } from './components/login-button/login-button.component';
 import { HomeComponent } from './components/home/home.component';
+import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
+import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 
+
+function initializeKeycloak(keycloak: KeycloakService) {
+  return () =>
+    keycloak.init({
+      config: {
+        url: 'http://localhost:8080',
+        realm: 'coders-platform-realm',
+        clientId: 'coders-platform-frontend-client'
+      },
+      initOptions: {
+        onLoad: 'check-sso'
+      }
+    });
+}
 
 @NgModule({
   declarations: [
@@ -26,7 +42,8 @@ import { HomeComponent } from './components/home/home.component';
     NavbarUnauthenticatedComponent,
     MainTextComponent,
     LoginButtonComponent,
-    HomeComponent
+    HomeComponent,
+    UserDashboardComponent
 
   ],
   imports: [
@@ -39,9 +56,18 @@ import { HomeComponent } from './components/home/home.component';
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    MatToolbarModule
+    MatToolbarModule,
+    KeycloakAngularModule
+
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeKeycloak,
+      multi: true,
+      deps: [KeycloakService]
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
